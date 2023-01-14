@@ -2,24 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ntua_el18610_s_application1/core/app_export.dart';
 
 class AppStyle {
-  static TextStyle txtRobotoMedium14WhiteA700 = TextStyle(
-    color: ColorConstant.whiteA700,
-    fontSize: getFontSize(
-      14,
-    ),
-    fontFamily: 'Roboto',
-    fontWeight: FontWeight.w500,
-  );
-
-  static TextStyle txtRobotoMedium14Gray600 = TextStyle(
-    color: ColorConstant.gray600,
-    fontSize: getFontSize(
-      14,
-    ),
-    fontFamily: 'Roboto',
-    fontWeight: FontWeight.w500,
-  );
-
   static TextStyle txtRobotoMedium14Deeppurple500 = TextStyle(
     color: ColorConstant.deepPurple500,
     fontSize: getFontSize(

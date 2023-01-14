@@ -1,9 +1,15 @@
+import '../controller/mechanics_one_controller.dart';
+import '../models/listcarname_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:ntua_el18610_s_application1/core/app_export.dart';
 
 // ignore: must_be_immutable
 class ListcarnameItemWidget extends StatelessWidget {
-  ListcarnameItemWidget();
+  ListcarnameItemWidget(this.listcarnameItemModelObj);
+
+  ListcarnameItemModel listcarnameItemModelObj;
+
+  var controller = Get.find<MechanicsOneController>();
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +29,7 @@ class ListcarnameItemWidget extends StatelessWidget {
               bottom: 14,
             ),
             child: Text(
-              "car Name",
+              "lbl_car_name2".tr,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.left,
               style: AppStyle.txtInterMedium8.copyWith(
@@ -42,7 +48,7 @@ class ListcarnameItemWidget extends StatelessWidget {
               bottom: 10,
             ),
             child: Text(
-              "Date of Service",
+              "lbl_date_of_service".tr,
               maxLines: null,
               textAlign: TextAlign.center,
               style: AppStyle.txtInterMedium8.copyWith(
@@ -61,7 +67,7 @@ class ListcarnameItemWidget extends StatelessWidget {
               bottom: 9,
             ),
             child: Text(
-              "Time of Service",
+              "lbl_time_of_service".tr,
               maxLines: null,
               textAlign: TextAlign.center,
               style: AppStyle.txtInterMedium8.copyWith(
@@ -104,7 +110,7 @@ class ListcarnameItemWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          "Cancel",
+                          "lbl_cancel".tr,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.left,
                           style: AppStyle.txtInterMedium8.copyWith(
@@ -124,7 +130,7 @@ class ListcarnameItemWidget extends StatelessWidget {
                       top: 7,
                     ),
                     child: Text(
-                      " Mechanic",
+                      "lbl_mechanic".tr,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
                       style: AppStyle.txtInterMedium8.copyWith(
@@ -156,7 +162,7 @@ class ListcarnameItemWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          "contact",
+                          "lbl_contact".tr,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.left,
                           style:
@@ -190,7 +196,7 @@ class ListcarnameItemWidget extends StatelessWidget {
                       borderRadius: BorderRadiusStyle.txtCircleBorder15,
                     ),
                     child: Text(
-                      "location",
+                      "lbl_location".tr,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
                       style: AppStyle.txtRobotoMedium14Deeppurple500.copyWith(

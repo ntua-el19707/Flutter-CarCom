@@ -1,3 +1,4 @@
+import 'controller/car_customize_rims_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:ntua_el18610_s_application1/core/app_export.dart';
 import 'package:ntua_el18610_s_application1/widgets/app_bar/appbar_image.dart';
@@ -7,7 +8,7 @@ import 'package:ntua_el18610_s_application1/widgets/app_bar/appbar_title.dart';
 import 'package:ntua_el18610_s_application1/widgets/app_bar/custom_app_bar.dart';
 import 'package:ntua_el18610_s_application1/widgets/custom_icon_button.dart';
 
-class CarCustomizeRimsScreen extends StatelessWidget {
+class CarCustomizeRimsScreen extends GetWidget<CarCustomizeRimsController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,7 +19,7 @@ class CarCustomizeRimsScreen extends StatelessWidget {
                 leadingWidth: 78,
                 leading: GestureDetector(
                     onTap: () {
-                      onTapSegment1(context);
+                      onTapSegment1();
                     },
                     child: Container(
                         margin: getMargin(left: 14, top: 12, bottom: 43),
@@ -36,7 +37,7 @@ class CarCustomizeRimsScreen extends StatelessWidget {
                                   margin:
                                       getMargin(left: 20, top: 4, right: 19)),
                               AppbarSubtitle(
-                                  text: "My cars",
+                                  text: "lbl_my_cars".tr,
                                   margin: getMargin(left: 9, top: 9, right: 9))
                             ]))),
                 title: Padding(
@@ -50,7 +51,7 @@ class CarCustomizeRimsScreen extends StatelessWidget {
                               svgPath: ImageConstant.imgIconGray800,
                               margin: getMargin(left: 18, right: 19)),
                           AppbarTitle(
-                              text: "My appointments",
+                              text: "lbl_my_appointments".tr,
                               margin: getMargin(top: 8))
                         ])),
                 actions: [
@@ -83,7 +84,7 @@ class CarCustomizeRimsScreen extends StatelessWidget {
                                                 margin: getMargin(
                                                     top: 2, right: 4)),
                                             AppbarSubtitle1(
-                                                text: "3",
+                                                text: "lbl_3".tr,
                                                 margin: getMargin(
                                                     left: 12, bottom: 10))
                                           ]))
@@ -91,9 +92,9 @@ class CarCustomizeRimsScreen extends StatelessWidget {
                             Padding(
                                 padding: getPadding(top: 8),
                                 child: Row(children: [
-                                  AppbarTitle(text: "Car customize"),
+                                  AppbarTitle(text: "lbl_car_customize".tr),
                                   AppbarTitle(
-                                      text: "Notifications",
+                                      text: "lbl_notifications".tr,
                                       margin: getMargin(left: 18, bottom: 15))
                                 ]))
                           ]))
@@ -163,7 +164,7 @@ class CarCustomizeRimsScreen extends StatelessWidget {
                                                                                         elevation: 0,
                                                                                         margin: getMargin(top: 45),
                                                                                         color: ColorConstant.deepPurple50,
-                                                                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(getHorizontalSize(16.00))),
+                                                                                        shape: RoundedRectangleBorder(borderRadius: BorderRadiusStyle.circleBorder16),
                                                                                         child: Container(
                                                                                             height: getVerticalSize(32.00),
                                                                                             width: getHorizontalSize(56.00),
@@ -172,7 +173,7 @@ class CarCustomizeRimsScreen extends StatelessWidget {
                                                                                             child: Stack(children: [
                                                                                               CustomImageView(svgPath: ImageConstant.imgIconGray900, height: getSize(24.00), width: getSize(24.00), alignment: Alignment.center)
                                                                                             ]))),
-                                                                                    Container(width: getHorizontalSize(42.00), margin: getMargin(top: 4), child: Text("Color change", maxLines: null, textAlign: TextAlign.center, style: AppStyle.txtRobotoMedium12.copyWith(letterSpacing: getHorizontalSize(0.50), height: getVerticalSize(1.14)))),
+                                                                                    Container(width: getHorizontalSize(42.00), margin: getMargin(top: 4), child: Text("lbl_color_change".tr, maxLines: null, textAlign: TextAlign.center, style: AppStyle.txtRobotoMedium12.copyWith(letterSpacing: getHorizontalSize(0.50), height: getVerticalSize(1.14)))),
                                                                                     CustomImageView(svgPath: ImageConstant.imgIconGray800, height: getSize(24.00), width: getSize(24.00), margin: getMargin(top: 6)),
                                                                                     Align(
                                                                                         alignment: Alignment.centerRight,
@@ -182,7 +183,7 @@ class CarCustomizeRimsScreen extends StatelessWidget {
                                                                                             margin: getMargin(top: 36, right: 10),
                                                                                             child: Stack(alignment: Alignment.bottomCenter, children: [
                                                                                               CustomImageView(svgPath: ImageConstant.imgComputer, height: getSize(24.00), width: getSize(24.00), alignment: Alignment.topLeft),
-                                                                                              Align(alignment: Alignment.bottomCenter, child: Text("Rims", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtRobotoMedium12Black900.copyWith(letterSpacing: getHorizontalSize(0.50), height: getVerticalSize(1.14))))
+                                                                                              Align(alignment: Alignment.bottomCenter, child: Text("lbl_rims".tr, overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtRobotoMedium12Black900.copyWith(letterSpacing: getHorizontalSize(0.50), height: getVerticalSize(1.14))))
                                                                                             ]))),
                                                                                     Container(
                                                                                         height: getVerticalSize(31.00),
@@ -190,16 +191,16 @@ class CarCustomizeRimsScreen extends StatelessWidget {
                                                                                         margin: getMargin(top: 27),
                                                                                         child: Stack(alignment: Alignment.bottomCenter, children: [
                                                                                           CustomImageView(svgPath: ImageConstant.imgTicket, height: getSize(24.00), width: getSize(24.00), alignment: Alignment.topCenter),
-                                                                                          Align(alignment: Alignment.bottomCenter, child: Text("Decals", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtRobotoMedium12Black900.copyWith(letterSpacing: getHorizontalSize(0.50), height: getVerticalSize(1.14))))
+                                                                                          Align(alignment: Alignment.bottomCenter, child: Text("lbl_decals".tr, overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtRobotoMedium12Black900.copyWith(letterSpacing: getHorizontalSize(0.50), height: getVerticalSize(1.14))))
                                                                                         ])),
                                                                                     CustomImageView(svgPath: ImageConstant.imgIcon, height: getSize(24.00), width: getSize(24.00), margin: getMargin(top: 28))
                                                                                   ]))),
                                                                           Align(
                                                                               alignment: Alignment.bottomRight,
-                                                                              child: Padding(padding: getPadding(right: 17), child: Text("Save", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtRobotoMedium12Black900.copyWith(letterSpacing: getHorizontalSize(0.50), height: getVerticalSize(1.14))))),
+                                                                              child: Padding(padding: getPadding(right: 17), child: Text("lbl_save".tr, overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtRobotoMedium12Black900.copyWith(letterSpacing: getHorizontalSize(0.50), height: getVerticalSize(1.14))))),
                                                                           Align(
                                                                               alignment: Alignment.bottomCenter,
-                                                                              child: Padding(padding: getPadding(bottom: 169), child: Text(" window tint", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtRobotoMedium12Black90001.copyWith(letterSpacing: getHorizontalSize(0.50), height: getVerticalSize(1.14)))))
+                                                                              child: Padding(padding: getPadding(bottom: 169), child: Text("lbl_window_tint".tr, overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtRobotoMedium12Black90001.copyWith(letterSpacing: getHorizontalSize(0.50), height: getVerticalSize(1.14)))))
                                                                         ])),
                                                                 Padding(
                                                                     padding: getPadding(
@@ -208,7 +209,8 @@ class CarCustomizeRimsScreen extends StatelessWidget {
                                                                         bottom:
                                                                             419),
                                                                     child: Text(
-                                                                        "Car 1",
+                                                                        "lbl_car_1"
+                                                                            .tr,
                                                                         overflow:
                                                                             TextOverflow
                                                                                 .ellipsis,
@@ -268,7 +270,7 @@ class CarCustomizeRimsScreen extends StatelessWidget {
                             ]))))));
   }
 
-  onTapSegment1(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.mycarsFourScreen);
+  onTapSegment1() {
+    Get.toNamed(AppRoutes.mycarsFourScreen);
   }
 }

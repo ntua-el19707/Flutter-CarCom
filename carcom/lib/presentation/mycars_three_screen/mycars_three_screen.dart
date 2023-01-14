@@ -1,4 +1,6 @@
 import '../mycars_three_screen/widgets/mycars_three_item_widget.dart';
+import 'controller/mycars_three_controller.dart';
+import 'models/mycars_three_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:ntua_el18610_s_application1/core/app_export.dart';
 import 'package:ntua_el18610_s_application1/widgets/app_bar/appbar_image.dart';
@@ -8,7 +10,7 @@ import 'package:ntua_el18610_s_application1/widgets/app_bar/appbar_title.dart';
 import 'package:ntua_el18610_s_application1/widgets/app_bar/custom_app_bar.dart';
 import 'package:ntua_el18610_s_application1/widgets/custom_button.dart';
 
-class MycarsThreeScreen extends StatelessWidget {
+class MycarsThreeScreen extends GetWidget<MycarsThreeController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -32,7 +34,7 @@ class MycarsThreeScreen extends StatelessWidget {
                               svgPath: ImageConstant.imgIconGray900,
                               margin: getMargin(left: 20, top: 4, right: 19)),
                           AppbarSubtitle(
-                              text: "My cars",
+                              text: "lbl_my_cars".tr,
                               margin: getMargin(left: 9, top: 9, right: 9))
                         ])),
                 title: Padding(
@@ -46,7 +48,7 @@ class MycarsThreeScreen extends StatelessWidget {
                               svgPath: ImageConstant.imgIconGray800,
                               margin: getMargin(left: 18, right: 19)),
                           AppbarTitle(
-                              text: "My appointments",
+                              text: "lbl_my_appointments".tr,
                               margin: getMargin(top: 8))
                         ])),
                 actions: [
@@ -79,7 +81,7 @@ class MycarsThreeScreen extends StatelessWidget {
                                                 margin: getMargin(
                                                     top: 2, right: 4)),
                                             AppbarSubtitle1(
-                                                text: "3",
+                                                text: "lbl_3".tr,
                                                 margin: getMargin(
                                                     left: 12, bottom: 10))
                                           ]))
@@ -87,9 +89,9 @@ class MycarsThreeScreen extends StatelessWidget {
                             Padding(
                                 padding: getPadding(top: 8),
                                 child: Row(children: [
-                                  AppbarTitle(text: "Car customize"),
+                                  AppbarTitle(text: "lbl_car_customize".tr),
                                   AppbarTitle(
-                                      text: "Notifications",
+                                      text: "lbl_notifications".tr,
                                       margin: getMargin(left: 18, bottom: 15))
                                 ]))
                           ]))
@@ -105,7 +107,7 @@ class MycarsThreeScreen extends StatelessWidget {
                           alignment: Alignment.centerLeft,
                           child: Padding(
                               padding: getPadding(left: 34),
-                              child: Text("Select one of Your Cars",
+                              child: Text("msg_select_one_of_your".tr,
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.left,
                                   style: AppStyle.txtRobotoMedium14.copyWith(
@@ -114,7 +116,7 @@ class MycarsThreeScreen extends StatelessWidget {
                       Container(
                           width: getHorizontalSize(52.00),
                           margin: getMargin(top: 8, right: 13),
-                          child: Text("milage\n tracking",
+                          child: Text("msg_milage_tracking".tr,
                               maxLines: null,
                               textAlign: TextAlign.center,
                               style: AppStyle.txtRobotoMedium14.copyWith(
@@ -122,15 +124,19 @@ class MycarsThreeScreen extends StatelessWidget {
                                   height: getVerticalSize(1.22)))),
                       Padding(
                           padding: getPadding(left: 16),
-                          child: ListView.builder(
+                          child: Obx(() => ListView.builder(
                               physics: BouncingScrollPhysics(),
                               shrinkWrap: true,
-                              itemCount: 3,
+                              itemCount: controller.mycarsThreeModelObj.value
+                                  .mycarsThreeItemList.length,
                               itemBuilder: (context, index) {
-                                return MycarsThreeItemWidget(
-                                    onTapCarprofile: () =>
-                                        onTapCarprofile(context));
-                              }))
+                                MycarsThreeItemModel model = controller
+                                    .mycarsThreeModelObj
+                                    .value
+                                    .mycarsThreeItemList[index];
+                                return MycarsThreeItemWidget(model,
+                                    onTapCarprofile: onTapCarprofile);
+                              })))
                     ])),
             bottomNavigationBar: Padding(
                 padding: getPadding(left: 13, right: 21, bottom: 14),
@@ -139,12 +145,12 @@ class MycarsThreeScreen extends StatelessWidget {
                   CustomButton(
                       height: 46,
                       width: 317,
-                      text: "Add new Car",
+                      text: "lbl_add_new_car".tr,
                       padding: ButtonPadding.PaddingAll14)
                 ]))));
   }
 
-  onTapCarprofile(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.mycarprofileTabContainerScreen);
+  onTapCarprofile() {
+// TODO: implement Actions
   }
 }

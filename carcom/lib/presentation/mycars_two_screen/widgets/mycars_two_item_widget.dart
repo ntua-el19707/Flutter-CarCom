@@ -1,10 +1,17 @@
+import '../controller/mycars_two_controller.dart';
+import '../models/mycars_two_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:ntua_el18610_s_application1/core/app_export.dart';
 import 'package:ntua_el18610_s_application1/widgets/custom_button.dart';
 
 // ignore: must_be_immutable
 class MycarsTwoItemWidget extends StatelessWidget {
-  MycarsTwoItemWidget({this.onTapCarprofile, this.onTapStackcontrast});
+  MycarsTwoItemWidget(this.mycarsTwoItemModelObj,
+      {this.onTapCarprofile, this.onTapStackcontrast});
+
+  MycarsTwoItemModel mycarsTwoItemModelObj;
+
+  var controller = Get.find<MycarsTwoController>();
 
   VoidCallback? onTapCarprofile;
 
@@ -45,7 +52,7 @@ class MycarsTwoItemWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Car name",
+                  "lbl_car_name".tr,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.left,
                   style: AppStyle.txtRobotoMedium14.copyWith(
@@ -63,7 +70,7 @@ class MycarsTwoItemWidget extends StatelessWidget {
                     top: 15,
                   ),
                   child: Text(
-                    "owner",
+                    "lbl_owner".tr,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtRobotoMedium14Bluegray100.copyWith(
@@ -82,12 +89,12 @@ class MycarsTwoItemWidget extends StatelessWidget {
           CustomButton(
             height: 46,
             width: 80,
-            text: "Car Profile",
+            text: "lbl_car_profile".tr,
             margin: getMargin(
               top: 6,
               bottom: 12,
             ),
-            onTap: () => onTapCarprofile(context),
+            onTap: onTapCarprofile,
           ),
           GestureDetector(
             onTap: () {

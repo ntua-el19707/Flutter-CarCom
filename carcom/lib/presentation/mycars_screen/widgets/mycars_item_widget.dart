@@ -1,10 +1,16 @@
+import '../controller/mycars_controller.dart';
+import '../models/mycars_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:ntua_el18610_s_application1/core/app_export.dart';
 import 'package:ntua_el18610_s_application1/widgets/custom_button.dart';
 
 // ignore: must_be_immutable
 class MycarsItemWidget extends StatelessWidget {
-  MycarsItemWidget({this.onTapCarprofile});
+  MycarsItemWidget(this.mycarsItemModelObj, {this.onTapCarprofile});
+
+  MycarsItemModel mycarsItemModelObj;
+
+  var controller = Get.find<MycarsController>();
 
   VoidCallback? onTapCarprofile;
 
@@ -43,7 +49,7 @@ class MycarsItemWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Car name",
+                  "lbl_car_name".tr,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.left,
                   style: AppStyle.txtRobotoMedium14.copyWith(
@@ -61,7 +67,7 @@ class MycarsItemWidget extends StatelessWidget {
                     top: 12,
                   ),
                   child: Text(
-                    "owner",
+                    "lbl_owner".tr,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtRobotoMedium14Bluegray100.copyWith(
@@ -80,12 +86,12 @@ class MycarsItemWidget extends StatelessWidget {
           CustomButton(
             height: 42,
             width: 80,
-            text: "Car Profile",
+            text: "lbl_car_profile".tr,
             margin: getMargin(
               top: 5,
               bottom: 11,
             ),
-            onTap: () => onTapCarprofile(context),
+            onTap: onTapCarprofile,
           ),
           Container(
             height: getVerticalSize(

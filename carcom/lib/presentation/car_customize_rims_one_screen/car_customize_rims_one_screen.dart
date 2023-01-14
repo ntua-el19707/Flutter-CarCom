@@ -1,3 +1,4 @@
+import 'controller/car_customize_rims_one_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:ntua_el18610_s_application1/core/app_export.dart';
 import 'package:ntua_el18610_s_application1/widgets/app_bar/appbar_image.dart';
@@ -7,7 +8,8 @@ import 'package:ntua_el18610_s_application1/widgets/app_bar/appbar_title.dart';
 import 'package:ntua_el18610_s_application1/widgets/app_bar/custom_app_bar.dart';
 import 'package:ntua_el18610_s_application1/widgets/custom_icon_button.dart';
 
-class CarCustomizeRimsOneScreen extends StatelessWidget {
+class CarCustomizeRimsOneScreen
+    extends GetWidget<CarCustomizeRimsOneController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -50,7 +52,7 @@ class CarCustomizeRimsOneScreen extends StatelessWidget {
                   ),
                 ),
                 AppbarSubtitle(
-                  text: "My cars",
+                  text: "lbl_my_cars".tr,
                   margin: getMargin(
                     left: 9,
                     top: 9,
@@ -81,7 +83,7 @@ class CarCustomizeRimsOneScreen extends StatelessWidget {
                   ),
                 ),
                 AppbarTitle(
-                  text: "My appointments",
+                  text: "lbl_my_appointments".tr,
                   margin: getMargin(
                     top: 8,
                   ),
@@ -146,7 +148,7 @@ class CarCustomizeRimsOneScreen extends StatelessWidget {
                                 ),
                               ),
                               AppbarSubtitle1(
-                                text: "3",
+                                text: "lbl_3".tr,
                                 margin: getMargin(
                                   left: 12,
                                   bottom: 10,
@@ -165,10 +167,10 @@ class CarCustomizeRimsOneScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         AppbarTitle(
-                          text: "Car customize",
+                          text: "lbl_car_customize".tr,
                         ),
                         AppbarTitle(
-                          text: "Notifications",
+                          text: "lbl_notifications".tr,
                           margin: getMargin(
                             left: 18,
                             bottom: 15,
@@ -290,12 +292,8 @@ class CarCustomizeRimsOneScreen extends StatelessWidget {
                                                       shape:
                                                           RoundedRectangleBorder(
                                                         borderRadius:
-                                                            BorderRadius
-                                                                .circular(
-                                                          getHorizontalSize(
-                                                            16.00,
-                                                          ),
-                                                        ),
+                                                            BorderRadiusStyle
+                                                                .circleBorder16,
                                                       ),
                                                       child: Container(
                                                         height: getVerticalSize(
@@ -345,7 +343,7 @@ class CarCustomizeRimsOneScreen extends StatelessWidget {
                                                         top: 4,
                                                       ),
                                                       child: Text(
-                                                        "Color change",
+                                                        "lbl_color_change".tr,
                                                         maxLines: null,
                                                         textAlign:
                                                             TextAlign.center,
@@ -413,7 +411,7 @@ class CarCustomizeRimsOneScreen extends StatelessWidget {
                                                               alignment: Alignment
                                                                   .bottomCenter,
                                                               child: Text(
-                                                                "Rims",
+                                                                "lbl_rims".tr,
                                                                 overflow:
                                                                     TextOverflow
                                                                         .ellipsis,
@@ -469,7 +467,7 @@ class CarCustomizeRimsOneScreen extends StatelessWidget {
                                                             alignment: Alignment
                                                                 .bottomCenter,
                                                             child: Text(
-                                                              "Decals",
+                                                              "lbl_decals".tr,
                                                               overflow:
                                                                   TextOverflow
                                                                       .ellipsis,
@@ -517,7 +515,7 @@ class CarCustomizeRimsOneScreen extends StatelessWidget {
                                                   right: 17,
                                                 ),
                                                 child: Text(
-                                                  "Save",
+                                                  "lbl_save".tr,
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   textAlign: TextAlign.left,
@@ -542,7 +540,7 @@ class CarCustomizeRimsOneScreen extends StatelessWidget {
                                                   bottom: 169,
                                                 ),
                                                 child: Text(
-                                                  " window tint",
+                                                  "lbl_window_tint".tr,
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   textAlign: TextAlign.left,
@@ -569,7 +567,7 @@ class CarCustomizeRimsOneScreen extends StatelessWidget {
                                           bottom: 419,
                                         ),
                                         child: Text(
-                                          "Car 1",
+                                          "lbl_car_1".tr,
                                           overflow: TextOverflow.ellipsis,
                                           textAlign: TextAlign.left,
                                           style:

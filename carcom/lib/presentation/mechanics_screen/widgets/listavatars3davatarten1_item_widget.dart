@@ -1,10 +1,16 @@
+import '../controller/mechanics_controller.dart';
+import '../models/listavatars3davatarten1_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:ntua_el18610_s_application1/core/app_export.dart';
 import 'package:ntua_el18610_s_application1/widgets/custom_button.dart';
 
 // ignore: must_be_immutable
 class Listavatars3davatarten1ItemWidget extends StatelessWidget {
-  Listavatars3davatarten1ItemWidget();
+  Listavatars3davatarten1ItemWidget(this.listavatars3davatarten1ItemModelObj);
+
+  Listavatars3davatarten1ItemModel listavatars3davatarten1ItemModelObj;
+
+  var controller = Get.find<MechanicsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +68,7 @@ class Listavatars3davatarten1ItemWidget extends StatelessWidget {
                                 bottom: 2,
                               ),
                               child: Text(
-                                "Rating:",
+                                "lbl_rating".tr,
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.left,
                                 style: AppStyle.txtRobotoMedium8.copyWith(
@@ -97,7 +103,7 @@ class Listavatars3davatarten1ItemWidget extends StatelessWidget {
                             35.00,
                           ),
                           child: Text(
-                            "Mechanic Name",
+                            "lbl_mechanic_name".tr,
                             maxLines: null,
                             textAlign: TextAlign.center,
                             style: AppStyle.txtRobotoMedium8Black900.copyWith(
@@ -141,7 +147,7 @@ class Listavatars3davatarten1ItemWidget extends StatelessWidget {
                           top: 2,
                         ),
                         child: Text(
-                          "Book\nAppoitment",
+                          "lbl_book_appoitment".tr,
                           maxLines: null,
                           textAlign: TextAlign.center,
                           style:
@@ -161,7 +167,7 @@ class Listavatars3davatarten1ItemWidget extends StatelessWidget {
                 CustomButton(
                   height: 63,
                   width: 74,
-                  text: "contact",
+                  text: "lbl_contact".tr,
                   margin: getMargin(
                     left: 6,
                     top: 5,

@@ -137,7 +137,7 @@ class MycarprofileTabContainerScreen extends StatelessWidget {
                                     child: Text("owner",
                                         overflow: TextOverflow.ellipsis,
                                         textAlign: TextAlign.left,
-                                        style: AppStyle.txtRobotoMedium14Gray600
+                                        style: AppStyle.txtRobotoMedium14Bluegray100
                                             .copyWith(
                                                 letterSpacing:
                                                     getHorizontalSize(0.10),

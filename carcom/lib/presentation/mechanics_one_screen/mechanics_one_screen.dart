@@ -1,5 +1,8 @@
 import '../mechanics_one_screen/widgets/listavatars3davatarten_item_widget.dart';
 import '../mechanics_one_screen/widgets/listcarname_item_widget.dart';
+import 'controller/mechanics_one_controller.dart';
+import 'models/listavatars3davatarten_item_model.dart';
+import 'models/listcarname_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:ntua_el18610_s_application1/core/app_export.dart';
 import 'package:ntua_el18610_s_application1/widgets/app_bar/appbar_image.dart';
@@ -8,7 +11,7 @@ import 'package:ntua_el18610_s_application1/widgets/app_bar/appbar_subtitle_1.da
 import 'package:ntua_el18610_s_application1/widgets/app_bar/appbar_title.dart';
 import 'package:ntua_el18610_s_application1/widgets/app_bar/custom_app_bar.dart';
 
-class MechanicsOneScreen extends StatelessWidget {
+class MechanicsOneScreen extends GetWidget<MechanicsOneController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -51,7 +54,7 @@ class MechanicsOneScreen extends StatelessWidget {
                   ),
                 ),
                 AppbarSubtitle(
-                  text: "My cars",
+                  text: "lbl_my_cars".tr,
                   margin: getMargin(
                     left: 9,
                     top: 9,
@@ -82,7 +85,7 @@ class MechanicsOneScreen extends StatelessWidget {
                   ),
                 ),
                 AppbarTitle(
-                  text: "My appointments",
+                  text: "lbl_my_appointments".tr,
                   margin: getMargin(
                     top: 8,
                   ),
@@ -147,7 +150,7 @@ class MechanicsOneScreen extends StatelessWidget {
                                 ),
                               ),
                               AppbarSubtitle1(
-                                text: "3",
+                                text: "lbl_3".tr,
                                 margin: getMargin(
                                   left: 12,
                                   bottom: 10,
@@ -166,10 +169,10 @@ class MechanicsOneScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         AppbarTitle(
-                          text: "Car customize",
+                          text: "lbl_car_customize".tr,
                         ),
                         AppbarTitle(
-                          text: "Notifications",
+                          text: "lbl_notifications".tr,
                           margin: getMargin(
                             left: 18,
                             bottom: 15,
@@ -199,13 +202,22 @@ class MechanicsOneScreen extends StatelessWidget {
                   top: 11,
                   right: 8,
                 ),
-                child: ListView.builder(
-                  physics: BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return ListcarnameItemWidget();
-                  },
+                child: Obx(
+                  () => ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: controller
+                        .mechanicsOneModelObj.value.listcarnameItemList.length,
+                    itemBuilder: (context, index) {
+                      ListcarnameItemModel model = controller
+                          .mechanicsOneModelObj
+                          .value
+                          .listcarnameItemList[index];
+                      return ListcarnameItemWidget(
+                        model,
+                      );
+                    },
+                  ),
                 ),
               ),
               Padding(
@@ -214,20 +226,29 @@ class MechanicsOneScreen extends StatelessWidget {
                   top: 25,
                   right: 8,
                 ),
-                child: ListView.separated(
-                  physics: BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  separatorBuilder: (context, index) {
-                    return SizedBox(
-                      height: getVerticalSize(
-                        1.00,
-                      ),
-                    );
-                  },
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return Listavatars3davatartenItemWidget();
-                  },
+                child: Obx(
+                  () => ListView.separated(
+                    physics: BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    separatorBuilder: (context, index) {
+                      return SizedBox(
+                        height: getVerticalSize(
+                          1.00,
+                        ),
+                      );
+                    },
+                    itemCount: controller.mechanicsOneModelObj.value
+                        .listavatars3davatartenItemList.length,
+                    itemBuilder: (context, index) {
+                      Listavatars3davatartenItemModel model = controller
+                          .mechanicsOneModelObj
+                          .value
+                          .listavatars3davatartenItemList[index];
+                      return Listavatars3davatartenItemWidget(
+                        model,
+                      );
+                    },
+                  ),
                 ),
               ),
             ],
