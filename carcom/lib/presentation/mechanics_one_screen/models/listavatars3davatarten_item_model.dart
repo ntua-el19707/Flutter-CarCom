@@ -1,1 +1,0 @@
-class Listavatars3davatartenItemModel {}

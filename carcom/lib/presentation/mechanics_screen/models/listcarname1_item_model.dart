@@ -1,1 +1,0 @@
-class Listcarname1ItemModel {}
