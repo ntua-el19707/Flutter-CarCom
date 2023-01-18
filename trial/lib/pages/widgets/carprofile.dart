@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:trial/themes/app_decoration.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:trial/pages/widgets/custom_button.dart';
@@ -68,10 +68,41 @@ class _CarprofState extends State<Carprof> {
     ),
               Container(
                   child: Row(
-                    children: [CustomButton()],
+                    children: [
+                      Container(
+                        child: CustomButton(
+                          height: 40,
+                          width: 135,
+                          text: "edit",
+                          padding: ButtonPadding.PaddingPDA10,
+                        ),
+                        padding: getPadding(left: 10, right: 10),
+                      ),
+                      Flexible(fit: FlexFit.tight, child: SizedBox()),
+                      Container(
+                        decoration: AppDecoration.fillRed900.copyWith(
+                          borderRadius: BorderRadiusStyle.circleBorder16,
+                        ),
+                        padding: getPadding(left: 10, right: 10),
+                        width: 135,
+                        height: 40,
+                        child: Text(
+                          "Delete",
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.center,
+                          style: AppStyle.txtRobotoMedium15Black900.copyWith(
+                            height: getVerticalSize(
+                              1.00,
+                            ),
+                          ),
+                        ),
+                        alignment: Alignment.center,
+                        margin: getMargin(right: 10),
+                      ),
+                    ],
                   ),
                   width: MediaQuery.of(context).size.width,
-                  height: 100)
+                  height: 100),
             ],
             mainAxisSize: MainAxisSize.min,
           ),
