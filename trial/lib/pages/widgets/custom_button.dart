@@ -114,6 +114,8 @@ class CustomButton extends StatelessWidget {
           right: 6,
           bottom: 14,
         );
+      case ButtonPadding.PaddingPDA10:
+        return getPadding(left: 10, right: 10, bottom: 10);
       case ButtonPadding.PaddingAll14:
         return getPadding(
           all: 14,
@@ -173,7 +175,7 @@ class CustomButton extends StatelessWidget {
     switch (fontStyle) {
       default:
         return TextStyle(
-          color: ColorConstant.deepPurple500,
+          color: ColorConstant.black900,
           fontSize: getFontSize(
             14,
           ),
@@ -197,6 +199,7 @@ enum ButtonPadding {
   PaddingT14,
   PaddingAll14,
   PaddingT22,
+  PaddingPDA10
 }
 
 enum ButtonVariant {
