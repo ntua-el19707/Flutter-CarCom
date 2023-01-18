@@ -34,10 +34,10 @@ class _MyCarCardState extends State<MyCarCard> {
                   ),
                   padding: EdgeInsets.all(16.0),
                 ),
-                Container(
-                    child: Text(
-                  "Car plates",
-                  style: AppStyle.txtRobotoMedium15Black900,
+                  Container(
+                      child: Text(
+                    "Car plates",
+                    style: AppStyle.txtRobotoMedium15Black900,
                 )),
                 Flexible(fit: FlexFit.tight, child: SizedBox()),
                 Align(
