@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:trial/pages/CarList.dart';
+import 'package:trial/themes/app_style.dart';
 
 void main() {
   runApp(const MyApp());
 }
- 
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -13,7 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("CarCom"),
+          title: Container(
+            child: Text("CarCom", style: AppStyle.txtRobotoMedium),
+            alignment: Alignment.center,
+          ),
           leading: Icon(Icons.emoji_transportation),
           actions: <Widget>[Icon(Icons.notifications)],
         ),
