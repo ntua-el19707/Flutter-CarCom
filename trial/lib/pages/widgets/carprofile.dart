@@ -14,6 +14,10 @@ class Carprof extends StatefulWidget {
   State<Carprof> createState() => _CarprofState();
 }
 String owner = "sakis";
+String miles = "50000";
+String lservice = "45000";
+String nservice = "60000";
+String nmapp = "02/03/23";
 class _CarprofState extends State<Carprof> {
   @override
   Widget build(BuildContext context) {
@@ -34,12 +38,12 @@ class _CarprofState extends State<Carprof> {
                       ),
                   padding: EdgeInsets.all(16.0),
                  ),
-                     Container(
+                     Column(children: [Container(
                      child: Text(
                      "Car plates",
-                      style: AppStyle.txtRobotoMedium15Black900,
+                      style: AppStyle.txtRobotoRegular20,
                      )),
-                 Flexible(fit: FlexFit.tight, child: SizedBox()),
+
                  Align(
                  alignment: Alignment.centerRight,
                    child: Padding(
@@ -51,7 +55,7 @@ class _CarprofState extends State<Carprof> {
               owner,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.left,
-              style: AppStyle.txtRobotoMedium14Gray600.copyWith(
+              style: AppStyle.txtRobotoMedium24Gray600.copyWith(
               letterSpacing: getHorizontalSize(
               0.10,
                  ),
@@ -60,12 +64,57 @@ class _CarprofState extends State<Carprof> {
                   ),
               ),
              ),),
-      ),
-
-
-
+      )]
+                     ),
     ]),
     ),
+             Row(children: [Container(
+               child: Row(
+                children: [
+                   Text(
+                  "Miles:",
+                   style: AppStyle.txtRobotoRegular20,),
+                   Text(
+                         miles,
+                          style: AppStyle.txtRobotoRegular20,)]
+               )),//next
+             ]),
+
+              Row(children: [Container(
+                  child: Row(
+                      children: [
+                        Text(
+                          "Last Service:",
+                          style: AppStyle.txtRobotoRegular20,),
+                        Text(
+                          lservice,
+                          style: AppStyle.txtRobotoRegular20,)]
+                  )),
+              ]),
+              Row(children: [Container(
+                  child: Row(
+                      children: [
+                        Text(
+                          "Next Service: ",
+                          style: AppStyle.txtRobotoRegular20,),
+                        Text(
+                          nservice,
+                          style: AppStyle.txtRobotoRegular20,)]
+                  )),//next
+              ]),
+              Row(children: [Container(
+                  child: Row(
+                      children: [
+                        Text(
+                          "Next mechanic appointment: ",
+                          style: AppStyle.txtRobotoRegular20,),
+                        Text(
+                          nmapp,
+                          style: AppStyle.txtRobotoRegular20,)]
+                  )),//next
+              ]),
+
+
               Container(
                   child: Row(
                     children: [
