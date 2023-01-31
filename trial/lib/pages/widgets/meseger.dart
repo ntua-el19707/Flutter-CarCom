@@ -4,7 +4,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:trial/pages/widgets/contact.dart';
 import 'package:trial/pages/widgets/messengerHeder.dart';
+import 'package:trial/pages/widgets/msgSend.dart';
 import 'package:trial/themes/app_decoration.dart';
 
 class Messenger extends StatefulWidget {
@@ -18,7 +20,8 @@ class _MessengerState extends State<Messenger> {
   double widthAvatarBoard = 80.0;
   double headerSize = 100.0;
   double InputSend = 100.0;
-
+  double size = 70.0;
+  String path = "images/mechanicDefault.png";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,10 +31,31 @@ class _MessengerState extends State<Messenger> {
             height: MediaQuery.of(context).size.height,
             width: widthAvatarBoard,
             decoration: AppDecoration.outlineGray600,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                SizedBox(
+                    height: headerSize,
+                    child: SizedBox(
+                        width: 70,
+                        child: FloatingActionButton(
+                          tooltip: 'back', // used by assistive technologies
+                          onPressed: null,
+                          child: Icon(Icons.arrow_back),
+
+                          shape: BeveledRectangleBorder(
+                              borderRadius: BorderRadius.zero),
+                        ))),
+                Image.asset(
+                  path,
+                  width: size,
+                  height: size,
+                )
+              ],
+            ),
           ),
           SingleChildScrollView(
               keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-              dragStartBehavior: DragStartBehavior.down,
               child: Container(
                   height: MediaQuery.of(context).size.height,
                   width: (MediaQuery.of(context).size.width - widthAvatarBoard),
@@ -47,10 +71,10 @@ class _MessengerState extends State<Messenger> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height -
                             InputSend -
-                            headerSize -
-                            136,
+                            headerSize,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
+                          children: [msgSend()],
                         ),
                       ),
                       SingleChildScrollView(
