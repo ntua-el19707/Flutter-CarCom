@@ -41,6 +41,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   reactive_forms: ^14.1.0
   image_picker: ^0.8.6+1
+  horizontal_list: ^0.0.7
 
 dev_dependencies:
   flutter_test:
