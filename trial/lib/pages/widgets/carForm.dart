@@ -11,19 +11,25 @@ import 'package:flutter/material.dart' hide ProgressIndicator;
 import 'package:reactive_forms/reactive_forms.dart';
 
 class CarForm extends StatefulWidget {
-  const CarForm({super.key});
-
+  const CarForm(
+      {super.key,
+      required this.CarPlates,
+      required this.Mechanic,
+      required this.header,
+      required this.lastservice,
+      required this.miles,
+      required this.owner});
+  final String header;
+  final String CarPlates;
+  final String owner;
+  final double miles;
+  final DateTime lastservice;
+  final String Mechanic;
   @override
   State<CarForm> createState() => _CarFormState();
 }
 
 class _CarFormState extends State<CarForm> {
-  String header = "Add a new Car";
-  String defaultImagePath = "";
-  String owner = "Hashirama";
-  String miles = "100000";
-  DateTime lastservice = DateTime(2023, 1, 29, 11, 35);
-  String Mechanic = "Sasuke";
   late FocusNode _focusNode = FocusNode();
 
   @override
@@ -38,20 +44,20 @@ class _CarFormState extends State<CarForm> {
     super.dispose();
   }
 
-  FormGroup buildForm() => fb.group(<String, Object>{
-        'Carplates': FormControl<String>(validators: [Validators.required]),
-        'image': [
-          '',
-        ],
-        'carOwner': [owner, Validators.required],
-        'Miles': [miles, Validators.required],
-        'LastService': [
-          lastservice,
-        ],
-        'Mechanic': [Mechanic]
-      });
   @override
   Widget build(BuildContext context) {
+    FormGroup buildForm() => fb.group(<String, Object>{
+          'Carplates': [widget.CarPlates, Validators.required],
+          'image': [
+            '',
+          ],
+          'carOwner': ["", Validators.required],
+          'Miles': ["", Validators.required],
+          'LastService': [
+            DateTime.now(),
+          ],
+          'Mechanic': [""]
+        });
     return Scaffold(
       body: Container(
         child: Column(
@@ -60,7 +66,7 @@ class _CarFormState extends State<CarForm> {
                 child: Container(
               //header;
               child: Text(
-                header,
+                widget.header,
                 style: AppStyle.txtRobotoMedium24Gray600,
               ),
             )),

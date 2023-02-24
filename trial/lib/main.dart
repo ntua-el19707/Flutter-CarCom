@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:trial/pages/CarList.dart';
+import 'package:trial/pages/arPage.dart';
+import 'package:trial/pages/carForm.dart';
+import 'package:trial/pages/carProfilePage.dart';
+import 'package:trial/pages/mechanics.dart';
+import 'package:trial/pages/widgets/mechanic.dart';
+import 'package:trial/pages/widgets/meseger.dart';
 import 'package:trial/themes/app_style.dart';
 
-void main() {
+/// Λίστα στην οποία πρόκειται να προστεθούν οι διαθέσιμες κάμερες της συστκευής.
+/// Το late υποδηλώνει ότι μπορεί να αρχικοποιηθεί και αργότερα (και όχι τώρα
+/// που δηλώνεται)
+
+/// Συνάρτηση εισόδου (main) της εφααρμογής μου
+Future<void> main() async {
+  /// Από τη λίστα που έχει επιστραφεί, παίρνουμε την πρώτη κάμερα
+
+  /// Ξεκινάμε την εκτέλεση της εφαρμογής μας
   runApp(const MyApp());
 }
 
@@ -12,7 +26,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
+      routes: {
+        '/': (context) => Mycars(),
+        '/Mechanic': (context) => MechanicPage(),
+        '/ar': (context) => arPage(),
+        '/mesenger': (context) => Messenger(),
+        '/car': (context) => realpage(),
+        '/carForm': (context) => CarFormPage()
+        //  '/details': (context) => DetailScreen(),
+      },
+      /*home: Scaffold(
+        
         appBar: AppBar(
           title: Container(
             child: Text("CarCom", style: AppStyle.txtRobotoMedium),
@@ -37,6 +61,7 @@ class MyApp extends StatelessWidget {
           child: Icon(Icons.chat),
         ),
       ),
+     */
       debugShowCheckedModeBanner: false,
     );
   }

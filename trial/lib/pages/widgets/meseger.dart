@@ -21,6 +21,7 @@ class _MessengerState extends State<Messenger> {
   double headerSize = 100.0;
   double InputSend = 100.0;
   double size = 70.0;
+
   String path = "images/mechanicDefault.png";
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,9 @@ class _MessengerState extends State<Messenger> {
                         width: 70,
                         child: FloatingActionButton(
                           tooltip: 'back', // used by assistive technologies
-                          onPressed: null,
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/');
+                          },
                           child: Icon(Icons.arrow_back),
 
                           shape: BeveledRectangleBorder(

@@ -42,6 +42,7 @@ dependencies:
   camera: ^0.10.3
   google_mlkit_text_recognition: ^0.5.0
   flutter_colorpicker: ^1.0.3
+  random_date: ^0.0.7
 
 dev_dependencies:
   flutter_test:
@@ -66,7 +67,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/
     - images/
     - images/rims/
     - images/tints/

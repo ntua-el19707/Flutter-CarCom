@@ -154,6 +154,14 @@ class AppStyle {
     fontFamily: 'Roboto',
     fontWeight: FontWeight.w500,
   );
+  static TextStyle txtRobotoMedium15Bold = TextStyle(
+    color: ColorConstant.black900,
+    fontSize: getFontSize(
+      15,
+    ),
+    fontFamily: 'Roboto',
+    fontWeight: FontWeight.bold,
+  );
 
   static TextStyle txtRobotoMedium11 = TextStyle(
     color: ColorConstant.whiteA700,
@@ -215,7 +223,14 @@ class AppStyle {
     fontFamily: 'Roboto',
     fontWeight: FontWeight.w400,
   );
-
+  static TextStyle txtRobotoMedium30green = TextStyle(
+    color: ColorConstant.green,
+    fontSize: getFontSize(
+      30,
+    ),
+    fontFamily: 'Roboto',
+    fontWeight: FontWeight.w500,
+  );
   static TextStyle txtRobotoMedium24Gray600 = TextStyle(
     color: ColorConstant.gray600,
     fontSize: getFontSize(

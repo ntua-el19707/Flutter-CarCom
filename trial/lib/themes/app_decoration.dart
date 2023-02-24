@@ -13,6 +13,9 @@ class AppDecoration {
   static BoxDecoration get fillDeeppurple500 => BoxDecoration(
         color: ColorConstant.deepPurple500,
       );
+  static BoxDecoration get fillblue => BoxDecoration(
+        color: ColorConstant.lightBlue,
+      );
   static BoxDecoration get outlineBlack900 => BoxDecoration(
         border: Border.all(
           color: ColorConstant.black900,
@@ -31,6 +34,13 @@ class AppDecoration {
           ),
         ),
       );
+  static BoxDecoration get outlineDownGrey => BoxDecoration(
+      border: Border(
+          bottom: BorderSide(
+              color: ColorConstant.gray600,
+              width: getHorizontalSize(
+                1.00,
+              ))));
   static BoxDecoration get outlineDeeppurple500 => BoxDecoration(
         border: Border.all(
           color: ColorConstant.deepPurple500,
