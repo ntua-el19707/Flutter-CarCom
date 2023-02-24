@@ -115,7 +115,7 @@ class CustomButton extends StatelessWidget {
           bottom: 14,
         );
       case ButtonPadding.PaddingPDA10:
-        return getPadding(left: 10, right: 10, bottom: 10);
+        return getPadding(left: 10, right: 10, bottom: 10, top: 15);
       case ButtonPadding.PaddingAll14:
         return getPadding(
           all: 14,
