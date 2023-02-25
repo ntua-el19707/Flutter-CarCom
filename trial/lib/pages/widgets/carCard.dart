@@ -103,26 +103,31 @@ class _MyCarCardState extends State<MyCarCard> {
                         ),
                         padding: getPadding(left: 10, right: 10),
                       ),
-                      Container(
-                        decoration: AppDecoration.fillRed900.copyWith(
-                          borderRadius: BorderRadiusStyle.circleBorder16,
-                        ),
-                        padding: getPadding(left: 10, right: 10),
-                        width: MediaQuery.of(context).size.width / 3,
-                        height: 40,
-                        child: Text(
-                          "Delete",
-                          overflow: TextOverflow.ellipsis,
-                          textAlign: TextAlign.center,
-                          style: AppStyle.txtRobotoMedium15Black900.copyWith(
-                            height: getVerticalSize(
-                              1.00,
+                      GestureDetector(
+                        onTap: () {
+                          print("car ${widget.carPlates} will be deleted");
+                        },
+                        child: Container(
+                          decoration: AppDecoration.fillRed900.copyWith(
+                            borderRadius: BorderRadiusStyle.circleBorder16,
+                          ),
+                          padding: getPadding(left: 10, right: 10),
+                          width: MediaQuery.of(context).size.width / 3,
+                          height: 40,
+                          child: Text(
+                            "Delete",
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.center,
+                            style: AppStyle.txtRobotoMedium15Black900.copyWith(
+                              height: getVerticalSize(
+                                1.00,
+                              ),
                             ),
                           ),
+                          alignment: Alignment.center,
+                          margin: getMargin(right: 10),
                         ),
-                        alignment: Alignment.center,
-                        margin: getMargin(right: 10),
-                      ),
+                      )
                     ],
                   ),
                   width: MediaQuery.of(context).size.width,

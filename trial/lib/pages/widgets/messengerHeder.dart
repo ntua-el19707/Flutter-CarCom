@@ -4,17 +4,18 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:trial/themes/app_style.dart';
 
 class MessengerHeader extends StatefulWidget {
-  const MessengerHeader({super.key});
-
+  const MessengerHeader({super.key, required this.name, required this.path});
+  final String path;
+  final String name;
   @override
   State<MessengerHeader> createState() => _MessengerHeaderState();
 }
 
 class _MessengerHeaderState extends State<MessengerHeader> {
-  String path = "images/mechanicDefault.png";
-  String name = "Madara";
   @override
   Widget build(BuildContext context) {
+    String path = widget.path;
+    String name = widget.name;
     return Row(
       children: [
         Container(

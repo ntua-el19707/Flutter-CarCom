@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:trial/pages/arguments/argumentsForMessenger.dart';
 import 'package:trial/pages/arguments/argumetsForBookin.dart';
 import 'package:trial/pages/widgets/custom_button.dart';
 import 'package:trial/themes/app_decoration.dart';
@@ -93,7 +94,10 @@ class _MechanicState extends State<Mechanic> {
                   Container(
                     child: FloatingActionButton(
                       tooltip: 'chat', // used by assistive technologies
-                      onPressed: null,
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/mesenger',
+                            arguments: messengerSrgummnets(widget.name));
+                      },
                       child: Icon(
                         Icons.chat,
                         size: 15,

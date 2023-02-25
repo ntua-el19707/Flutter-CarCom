@@ -4,18 +4,20 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:trial/themes/app_decoration.dart';
 
 class msgSend extends StatefulWidget {
-  const msgSend({super.key});
-
+  const msgSend({super.key, required this.msg, required this.direction});
+  final String msg;
+  final bool direction;
   @override
   State<msgSend> createState() => _msgSendState();
 }
 
 class _msgSendState extends State<msgSend> {
-  String msg = "send";
+  // String msg = "send";
   bool direction = true;
   @override
   Widget build(BuildContext context) {
     Alignment al;
+    direction = widget.direction;
     Decoration dec;
     if (direction) {
       al = Alignment.centerLeft;
@@ -29,7 +31,7 @@ class _msgSendState extends State<msgSend> {
           alignment: al,
           child: SizedBox(
             width: MediaQuery.of(context).size.width / 3,
-            child: Container(decoration: dec, child: Text(msg)),
+            child: Container(decoration: dec, child: Text(widget.msg)),
           )),
     );
   }

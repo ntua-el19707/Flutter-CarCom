@@ -3,6 +3,7 @@ import 'dart:js_util';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:trial/pages/arguments/argumentsForMessenger.dart';
 import 'package:trial/themes/app_decoration.dart';
 import 'package:trial/themes/app_style.dart';
 import 'package:trial/themes/utils/exportUtils.dart';
@@ -102,7 +103,10 @@ class _appoitmentItemState extends State<appoitmentItem> {
                     height: (30.0),
                     child: FloatingActionButton(
                       tooltip: 'chat', // used by assistive technologies
-                      onPressed: null,
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/mesenger',
+                            arguments: messengerSrgummnets(widget.Mechanic));
+                      },
                       child: Icon(Icons.chat),
                     )),
                 Container(
