@@ -111,34 +111,41 @@ class _appoitmentItemState extends State<appoitmentItem> {
                     margin: getMargin(left: 10, right: 5.0),
                     child: FloatingActionButton(
                       tooltip: 'location', // used by assistive technologies
-                      onPressed: null,
+                      onPressed: () {
+                        print("open Google maps and find  location");
+                      },
                       child: Icon(Icons.location_on),
                     ))
               ]),
               Container(
                   child: Row(
                 children: [
-                  Container(
-                    decoration: AppDecoration.fillRed900.copyWith(
-                      borderRadius: BorderRadiusStyle.circleBorder16,
-                    ),
-                    //  padding: getPadding(left: 10, right: 10),
-                    width: (MediaQuery.of(context).size.width / 2),
-                    height: 30,
+                  GestureDetector(
+                    onTap: () {
+                      print("Cancel Apoitment");
+                    },
+                    child: Container(
+                      decoration: AppDecoration.fillRed900.copyWith(
+                        borderRadius: BorderRadiusStyle.circleBorder16,
+                      ),
+                      //  padding: getPadding(left: 10, right: 10),
+                      width: (MediaQuery.of(context).size.width / 2),
+                      height: 30,
 
-                    child: Text(
-                      "Cancel",
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
-                      style: AppStyle.txtRobotoMedium15Black900.copyWith(
-                        height: getVerticalSize(
-                          1.00,
+                      child: Text(
+                        "Cancel",
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        style: AppStyle.txtRobotoMedium15Black900.copyWith(
+                          height: getVerticalSize(
+                            1.00,
+                          ),
                         ),
                       ),
+                      alignment: Alignment.center,
+                      margin: getMargin(right: 10),
                     ),
-                    alignment: Alignment.center,
-                    margin: getMargin(right: 10),
-                  ),
+                  )
                 ],
               ))
             ],
