@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trial/pages/CarList.dart';
 import 'package:trial/pages/arPage.dart';
+import 'package:trial/pages/boookingForm.dart';
 import 'package:trial/pages/carForm.dart';
 import 'package:trial/pages/carProfilePage.dart';
 import 'package:trial/pages/mechanics.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
         '/ar': (context) => arPage(),
         '/mesenger': (context) => Messenger(),
         '/car': (context) => realpage(),
-        '/carForm': (context) => CarFormPage()
+        '/carForm': (context) => CarFormPage(),
+        '/BookingForm': (context) => BookingPage()
         //  '/details': (context) => DetailScreen(),
       },
       /*home: Scaffold(

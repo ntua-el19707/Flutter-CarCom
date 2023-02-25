@@ -81,21 +81,29 @@ class _camerarState extends State<camerar> {
     List<Widget> myList = [];
     if (mode == 1) {
       for (int i = 0; i < rims.length; i++) {
-        myList.add(Container(
-            child: Image.asset(
-          'images/' + rims[i],
-          width: 70,
-          height: 70,
-        )));
+        myList.add(GestureDetector(
+            onTap: () {
+              print("Select rim ${i}");
+            },
+            child: Container(
+                child: Image.asset(
+              'images/' + rims[i],
+              width: 70,
+              height: 70,
+            ))));
       }
     } else if (mode == 2) {
       for (int i = 0; i < tints.length; i++) {
-        myList.add(Container(
-            child: Image.asset(
-          'images/' + tints[i],
-          width: 70,
-          height: 70,
-        )));
+        myList.add(GestureDetector(
+            onTap: () {
+              print("Select tint ${i}");
+            },
+            child: Container(
+                child: Image.asset(
+              'images/' + tints[i],
+              width: 70,
+              height: 70,
+            ))));
       }
     }
     return myList;
@@ -103,6 +111,7 @@ class _camerarState extends State<camerar> {
 
 // ValueChanged<Color> callback
   void changeColor(Color color) {
+    print("picked color" + color.value.toString());
     setState(() => pickerColor = color);
   }
 
@@ -161,6 +170,8 @@ class _camerarState extends State<camerar> {
   }
 
   double horizontalsize = 200.0;
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     if (cameraController.value.isInitialized) {
@@ -180,6 +191,7 @@ class _camerarState extends State<camerar> {
                 Container(
                   height: horizontalsize / 3,
                   child: BottomNavigationBar(
+                    currentIndex: index,
                     items: const <BottomNavigationBarItem>[
                       BottomNavigationBarItem(
                           icon: Icon(Icons.color_lens_sharp),
@@ -189,6 +201,21 @@ class _camerarState extends State<camerar> {
                       BottomNavigationBarItem(
                           icon: Icon(Icons.circle), label: "rims"),
                     ],
+                    onTap: (value) {
+                      if (value == 0) {
+                        mode = 3;
+                        index = 0;
+                        setState(() {});
+                      } else if (value == 1) {
+                        mode = 2;
+                        index = 1;
+                        setState(() {});
+                      } else if (value == 2) {
+                        mode = 1;
+                        index = 2;
+                        setState(() {});
+                      }
+                    },
                   ),
                 ),
                 Align(

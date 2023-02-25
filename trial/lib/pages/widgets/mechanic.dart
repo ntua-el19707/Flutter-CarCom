@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:trial/pages/arguments/argumetsForBookin.dart';
 import 'package:trial/pages/widgets/custom_button.dart';
 import 'package:trial/themes/app_decoration.dart';
 import 'package:trial/themes/app_style.dart';
@@ -118,9 +119,12 @@ class _MechanicState extends State<Mechanic> {
                       style: AppStyle.txtRobotoMedium14,
                     ),
                     padding: EdgeInsets.all(1.0)),
-                Flexible(fit: FlexFit.tight, child: SizedBox()),
                 Container(
                   child: CustomButton(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/BookingForm',
+                          arguments: argumentsbookingform(widget.name));
+                    },
                     height: 40,
                     width: MediaQuery.of(context).size.width / 3,
                     text: "Book Appoitment",

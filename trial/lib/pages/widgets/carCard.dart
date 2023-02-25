@@ -103,13 +103,12 @@ class _MyCarCardState extends State<MyCarCard> {
                         ),
                         padding: getPadding(left: 10, right: 10),
                       ),
-                      Flexible(fit: FlexFit.tight, child: SizedBox()),
                       Container(
                         decoration: AppDecoration.fillRed900.copyWith(
                           borderRadius: BorderRadiusStyle.circleBorder16,
                         ),
                         padding: getPadding(left: 10, right: 10),
-                        width: MediaQuery.of(context).size.width / 4,
+                        width: MediaQuery.of(context).size.width / 3,
                         height: 40,
                         child: Text(
                           "Delete",

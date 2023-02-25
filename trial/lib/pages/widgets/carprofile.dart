@@ -98,7 +98,7 @@ class _CarprofState extends State<Carprof> {
     double lservice = miles - lservicem;
     double nservice = miles + nservicep;
     double width = MediaQuery.of(context).size.width;
-    double btnwidth = width / 3;
+    double btnwidth = width / 4;
     return Scaffold(
       body: Card(
           margin: const EdgeInsets.only(
@@ -239,7 +239,6 @@ class _CarprofState extends State<Carprof> {
                           ),
                           padding: getPadding(left: 10, right: 10),
                         ),
-                        Flexible(fit: FlexFit.tight, child: SizedBox()),
                         GestureDetector(
                             onTap: () {
                               print("click delete button");

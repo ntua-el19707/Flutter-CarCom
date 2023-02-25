@@ -35,6 +35,7 @@ class _CarFormState extends State<CarForm> {
   @override
   void initState() {
     _focusNode = FocusNode();
+//   print("${widget.CarPlates} ${widget.owner} ${widget.miles}");
     super.initState();
   }
 
@@ -44,20 +45,22 @@ class _CarFormState extends State<CarForm> {
     super.dispose();
   }
 
+  FormGroup Form = fb.group({});
   @override
   Widget build(BuildContext context) {
-    FormGroup buildForm() => fb.group(<String, Object>{
-          'Carplates': [widget.CarPlates, Validators.required],
-          'image': [
-            '',
-          ],
-          'carOwner': ["", Validators.required],
-          'Miles': ["", Validators.required],
-          'LastService': [
-            DateTime.now(),
-          ],
-          'Mechanic': [""]
-        });
+    Form = fb.group(<String, Object>{
+      'Carplates': [widget.CarPlates, Validators.required],
+      'image': [
+        '',
+      ],
+      'carOwner': [widget.owner, Validators.required],
+      'Miles': [widget.miles.toStringAsFixed(2), Validators.required],
+      'LastService': [
+        widget.lastservice,
+      ],
+      'Mechanic': [""]
+    });
+
     return Scaffold(
       body: Container(
         child: Column(
@@ -71,123 +74,128 @@ class _CarFormState extends State<CarForm> {
               ),
             )),
             Container(
-                child: ReactiveFormBuilder(
-              form: buildForm,
-              builder: (context, formGroup, child) {
-                return Column(
-                  children: [
-                    ReactiveTextField<String>(
-                        formControlName: 'Carplates',
-                        validationMessages: {
-                          ValidationMessage.required: (_) =>
-                              'Car Plates must not be empty',
-                        },
-                        textInputAction: TextInputAction.next,
-                        decoration: const InputDecoration(
-                          labelText: 'Car Plates',
-                          helperText: '',
-                          helperStyle: TextStyle(height: 0.7),
-                          errorStyle: TextStyle(height: 0.7),
-                        )),
-                    ReactiveTextField<String>(
-                        formControlName: 'carOwner',
-                        validationMessages: {
-                          ValidationMessage.required: (_) =>
-                              'Driver must not be empty',
-                        },
-                        textInputAction: TextInputAction.next,
-                        decoration: const InputDecoration(
-                          labelText: 'Driver',
-                          helperText: '',
-                          helperStyle: TextStyle(height: 0.7),
-                          errorStyle: TextStyle(height: 0.7),
-                        )),
-                    ReactiveTextField<String>(
-                        formControlName: 'Miles',
-                        validationMessages: {
-                          ValidationMessage.required: (_) =>
-                              'Miles must not be empty',
-                        },
-                        textInputAction: TextInputAction.next,
-                        decoration: const InputDecoration(
-                          labelText: 'Miles',
-                          helperText: '',
-                          helperStyle: TextStyle(height: 0.7),
-                          errorStyle: TextStyle(height: 0.7),
-                        )),
-                    Container(
-                      child: CustomButton(
-                        height: 40,
-                        width: 250,
-                        text: "Find Miles with Camera",
-                        padding: ButtonPadding.PaddingPDA10,
-                      ),
-                      padding: getPadding(left: 10, right: 10),
-                    ),
-                    ReactiveDatePicker<DateTime>(
-                      formControlName: 'LastService',
-                      firstDate: DateTime(1985),
-                      lastDate: DateTime(2030),
-                      builder: (context, picker, child) {
-                        Widget suffix = InkWell(
-                          onTap: () {
-                            // workaround until https://github.com/flutter/flutter/issues/39376
-                            // will be fixed
-
-                            // Unfocus all focus nodes
-                            _focusNode.unfocus();
-
-                            // Disable text field's focus node request
-                            _focusNode.canRequestFocus = false;
-
-                            // clear field value
-                            picker.control.value = null;
-
-                            //Enable the text field's focus node request after some delay
-                            Future.delayed(const Duration(milliseconds: 100),
-                                () {
-                              _focusNode.canRequestFocus = true;
-                            });
-                          },
-                          child: const Icon(Icons.clear),
-                        );
-
-                        if (picker.value == null) {
-                          suffix = const Icon(Icons.calendar_today);
-                        }
-
-                        return ReactiveTextField(
-                          onTap: (_) {
-                            if (_focusNode.canRequestFocus) {
-                              _focusNode.unfocus();
-                              picker.showPicker();
-                            }
-                          },
-                          valueAccessor: DateTimeValueAccessor(),
-                          focusNode: _focusNode,
+                child: ReactiveForm(
+                    formGroup: this.Form,
+                    child: Column(
+                      children: [
+                        ReactiveTextField<String>(
+                            formControlName: 'Carplates',
+                            validationMessages: {
+                              ValidationMessage.required: (_) =>
+                                  'Car Plates must not be empty',
+                            },
+                            textInputAction: TextInputAction.next,
+                            decoration: const InputDecoration(
+                              labelText: 'Car Plates',
+                              helperText: '',
+                              helperStyle: TextStyle(height: 0.7),
+                              errorStyle: TextStyle(height: 0.7),
+                            )),
+                        ReactiveTextField<String>(
+                            formControlName: 'carOwner',
+                            validationMessages: {
+                              ValidationMessage.required: (_) =>
+                                  'Driver must not be empty',
+                            },
+                            textInputAction: TextInputAction.next,
+                            decoration: const InputDecoration(
+                              labelText: 'Driver',
+                              helperText: '',
+                              helperStyle: TextStyle(height: 0.7),
+                              errorStyle: TextStyle(height: 0.7),
+                            )),
+                        ReactiveTextField<String>(
+                            formControlName: 'Miles',
+                            validationMessages: {
+                              ValidationMessage.required: (_) =>
+                                  'Miles must not be empty',
+                            },
+                            textInputAction: TextInputAction.next,
+                            decoration: const InputDecoration(
+                              labelText: 'Miles (km)',
+                              helperText: '',
+                              helperStyle: TextStyle(height: 0.7),
+                              errorStyle: TextStyle(height: 0.7),
+                            )),
+                        Container(child: Text("Mechanic: ${widget.Mechanic}")),
+                        ReactiveDatePicker<DateTime>(
                           formControlName: 'LastService',
-                          readOnly: true,
-                          decoration: InputDecoration(
-                            labelText: 'last Service ',
-                            suffixIcon: suffix,
-                          ),
-                        );
-                      },
-                    ),
-                    Container(
-                      height: 10,
-                    ),
-                    Container(
-                        child: CustomButton(
-                      height: 60,
-                      width: 300,
-                      text: "Submit",
-                      padding: ButtonPadding.PaddingPDA10,
-                    ))
-                  ],
-                );
-              },
-            ))
+                          firstDate: DateTime(1985),
+                          lastDate: DateTime(2030),
+                          builder: (context, picker, child) {
+                            Widget suffix = InkWell(
+                              onTap: () {
+                                // workaround until https://github.com/flutter/flutter/issues/39376
+                                // will be fixed
+
+                                // Unfocus all focus nodes
+                                _focusNode.unfocus();
+
+                                // Disable text field's focus node request
+                                _focusNode.canRequestFocus = false;
+
+                                // clear field value
+                                picker.control.value = null;
+
+                                //Enable the text field's focus node request after some delay
+                                Future.delayed(
+                                    const Duration(milliseconds: 100), () {
+                                  _focusNode.canRequestFocus = true;
+                                });
+                              },
+                              child: const Icon(Icons.clear),
+                            );
+
+                            if (picker.value == null) {
+                              suffix = const Icon(Icons.calendar_today);
+                            }
+
+                            return ReactiveTextField(
+                              onTap: (_) {
+                                if (_focusNode.canRequestFocus) {
+                                  _focusNode.unfocus();
+                                  picker.showPicker();
+                                }
+                              },
+                              valueAccessor: DateTimeValueAccessor(),
+                              focusNode: _focusNode,
+                              formControlName: 'LastService',
+                              readOnly: true,
+                              decoration: InputDecoration(
+                                labelText: 'last Service ',
+                                suffixIcon: suffix,
+                              ),
+                            );
+                          },
+                        ),
+                        Container(
+                          height: 10,
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              double miles;
+                              if (this.Form.valid) {
+                                if (widget.header == "add a car") {
+                                  print("Insert new Car");
+                                } else {
+                                  print("Edit Car");
+                                }
+                                print(
+                                    "CarPlates:${this.Form.controls['Carplates']?.value} Owner:${this.Form.controls['carOwner']?.value} Miles:${this.Form.controls['Miles']?.value} lastService:${this.Form.controls['LastService']?.value}");
+                                Navigator.pushNamed(context, "/");
+                              } else {
+                                print("Form is not valid");
+                              }
+                            },
+                            child: Container(
+                                child: CustomButton(
+                              height: 60,
+                              width: 300,
+                              text: "Submit",
+                              padding: ButtonPadding.PaddingPDA10,
+                            )))
+                      ],
+                    )))
           ],
         ),
         margin: getMargin(right: 10, left: 10),

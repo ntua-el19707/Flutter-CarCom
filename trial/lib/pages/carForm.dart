@@ -58,7 +58,7 @@ class _CarFormPageState extends State<CarFormPage> {
           actions: <Widget>[Icon(Icons.notifications)],
         ),
         bottomNavigationBar: NavBarBtm(
-          index: 2,
+          index: 0,
         ),
         body: CarForm(
             CarPlates: arg.carPlates,
@@ -80,7 +80,7 @@ class _CarFormPageState extends State<CarFormPage> {
           actions: <Widget>[Icon(Icons.notifications)],
         ),
         bottomNavigationBar: NavBarBtm(
-          index: 2,
+          index: 0,
         ),
         body: CarForm(
             CarPlates: "",
