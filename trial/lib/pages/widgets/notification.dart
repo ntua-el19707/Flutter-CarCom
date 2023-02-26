@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,8 +11,8 @@ import 'package:trial/themes/app_style.dart';
 import 'package:trial/themes/utils/exportUtils.dart';
 
 class NotificationWidget extends StatefulWidget {
-  const NotificationWidget({super.key});
-
+  const NotificationWidget({super.key,required this.dateofNot});
+ final DateTime dateofNot ;
   @override
   State<NotificationWidget> createState() => _NotificationWidgetState();
 }
@@ -22,28 +24,41 @@ class Not {
 }
 
 class _NotificationWidgetState extends State<NotificationWidget> {
-  final DateTime Date = DateTime.now();
-  List<Not> notificationsList = [
+  String dateFormat(DateTime date){
+    String rsp = "${date.day}/${date.month}/${date.year}\nTime: ${date.hour}:${date.minute}";
+
+    return rsp ;
+  }
+  /*List<Not> notificationsList = [
     Not("This is top priority", ColorConstant.red900),
-    Not("This is a normal Notifacauion", ColorConstant.black900)
-  ];
+    Not("This is a normal Notification", ColorConstant.black900)
+  ];*/
+  Not notification(){
+    Not notif ;
+    int r = Random().nextInt(2);
+    if(r ==1 ){
+      notif =  Not("This is top priority", ColorConstant.red900);
+    }else{
+      notif =  Not("This is a normal Notification", ColorConstant.black900);
+    }
+    return notif ;
+  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Card(
+    final DateTime Date = widget.dateofNot;
+    final Not not = notification() ;
+    return Container(
+        child: Card(
             child: Column(children: [
       Text(
-        "Date:" + Date.toString(),
+        "Date: " + dateFormat(Date),
         style: AppStyle.txtRobotoMedium14,
       ),
-      Column(
-          children: notificationsList
-              .map((i) => ListTile(
-                      title: Text(
-                    i.msg,
-                    style: TextStyle(color: i.color),
-                  )))
-              .toList()),
+        Container(
+          child:Text(not.msg, style: TextStyle(color: not.color))
+        )
+        ,
+
     ], mainAxisSize: MainAxisSize.min)));
   }
 }

@@ -5,6 +5,7 @@ import 'package:trial/pages/boookingForm.dart';
 import 'package:trial/pages/carForm.dart';
 import 'package:trial/pages/carProfilePage.dart';
 import 'package:trial/pages/mechanics.dart';
+import 'package:trial/pages/notif.dart';
 import 'package:trial/pages/widgets/mechanic.dart';
 import 'package:trial/pages/widgets/meseger.dart';
 import 'package:trial/themes/app_style.dart';
@@ -34,8 +35,9 @@ class MyApp extends StatelessWidget {
         '/mesenger': (context) => Messenger(),
         '/car': (context) => realpage(),
         '/carForm': (context) => CarFormPage(),
-        '/BookingForm': (context) => BookingPage()
+        '/BookingForm': (context) => BookingPage(),
         //  '/details': (context) => DetailScreen(),
+        '/notification': (context) => NotPage()
       },
       /*home: Scaffold(
         

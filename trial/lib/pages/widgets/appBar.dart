@@ -8,6 +8,7 @@ class appBarwidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(onTap: () {}, child: Icon(Icons.notifications));
+    return GestureDetector(onTap: () {Navigator.pushNamed(context, '/notification');}, child: Icon(Icons.notifications));
+
   }
 }

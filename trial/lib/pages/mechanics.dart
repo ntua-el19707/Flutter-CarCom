@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:random_date/random_date.dart';
+import 'package:trial/pages/widgets/appBar.dart';
 import 'package:trial/pages/widgets/appoitmentItem.dart';
 import 'package:trial/pages/widgets/botmmnavBar.dart';
 import 'package:trial/pages/widgets/mechanic.dart';
@@ -63,7 +64,7 @@ class _MechanicPageState extends State<MechanicPage> {
           alignment: Alignment.center,
         ),
         leading: Icon(Icons.emoji_transportation),
-        actions: <Widget>[Icon(Icons.notifications)],
+        actions: <Widget>[appBarwidget()],
       ),
       bottomNavigationBar: NavBarBtm(index: 1),
       body: Container(

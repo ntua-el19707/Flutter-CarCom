@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:camera/camera.dart';
 import 'package:trial/main.dart';
 import 'package:trial/pages/CarList.dart';
+import 'package:trial/pages/widgets/appBar.dart';
 import 'package:trial/pages/widgets/appoitmentItem.dart';
 import 'package:trial/pages/widgets/ar.dart';
 import 'package:trial/pages/widgets/botmmnavBar.dart';
@@ -39,7 +40,7 @@ class realpage extends StatelessWidget {
             alignment: Alignment.center,
           ),
           leading: Icon(Icons.emoji_transportation),
-          actions: <Widget>[Icon(Icons.notifications)],
+          actions: <Widget>[appBarwidget()],
         ),
         bottomNavigationBar: NavBarBtm(
           index: 0,
