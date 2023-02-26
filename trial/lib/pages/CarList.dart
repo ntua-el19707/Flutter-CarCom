@@ -6,6 +6,7 @@ import 'package:trial/pages/widgets/appBar.dart';
 import 'package:trial/pages/widgets/appoitmentItem.dart';
 import 'package:trial/pages/widgets/ar.dart';
 import 'package:trial/pages/widgets/botmmnavBar.dart';
+import 'package:trial/pages/widgets/custom_button.dart';
 import 'package:trial/pages/widgets/medengerIci.dart';
 import 'package:trial/pages/widgets/meseger.dart';
 import 'package:trial/pages/widgets/notification.dart';
@@ -18,6 +19,7 @@ import 'package:trial/pages/widgets/carForm.dart';
 import 'package:trial/pages/widgets/carprofile.dart';
 import 'package:trial/pages/widgets/mechanic.dart';
 import 'package:trial/themes/app_style.dart';
+import 'package:trial/themes/utils/exportUtils.dart';
 
 class Mycars extends StatefulWidget {
   const Mycars({
@@ -43,6 +45,20 @@ class _MyCarsState extends State<Mycars> {
       cars.add(MyCarCard(
           Owner: getRandom(15), carPlates: getRandom(6), tracking: false));
     }
+    cars.add(
+      Container(
+        child: CustomButton(
+          onTap: () {
+            Navigator.popAndPushNamed(context, '/carForm');
+          },
+          width: MediaQuery.of(context).size.width / 4,
+          height: 40,
+          text: "add a new Car",
+          padding: ButtonPadding.PaddingPDA10,
+        ),
+        padding: getPadding(left: 10, right: 10),
+      ),
+    );
     return cars;
   }
 
